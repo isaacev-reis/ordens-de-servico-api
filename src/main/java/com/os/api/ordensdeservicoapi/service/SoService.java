@@ -24,6 +24,7 @@ public class SoService {
 
     public void cancelOrder(UUID id) {
         repository.findById(id).get().cancel();
+        repository.save(repository.findById(id).get());
     }
 
     public SoModel getOrder(UUID id) {
@@ -32,10 +33,12 @@ public class SoService {
 
     public void startOrder(UUID id) {
         repository.findById(id).get().start();
+        repository.save(repository.findById(id).get());
     }
 
     public void finishOrder(UUID id) {
         repository.findById(id).get().finish();
+        repository.save(repository.findById(id).get());
     }
 
     public List<SoModel> getAllOrders() {

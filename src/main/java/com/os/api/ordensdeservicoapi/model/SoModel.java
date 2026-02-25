@@ -1,8 +1,6 @@
 package com.os.api.ordensdeservicoapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,13 +15,24 @@ import java.util.UUID;
 @ToString
 public class SoModel {
 
+    @Id
+    @Column(name = "id")
     private UUID id;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "client_name")
     private String clientName;
+
+    @Column(name = "opening_date")
     private LocalDate openingDate;
 
+    @Column(name = "status")
     @Enumerated(EnumType.ORDINAL)
     private Status status;
+
+    @Column(name = "valor")
     private BigDecimal value;
 
     public void openServiceOrder() {

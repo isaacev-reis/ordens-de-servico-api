@@ -8,9 +8,13 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api")
 public class SoController {
     private SoService service;
+
+    public SoController(SoService service) {
+        this.service = service;
+    }
 
     @PostMapping("/orders")
     public void createOrder(@RequestBody SoModel order) {
