@@ -1,12 +1,15 @@
 package com.os.api.ordensdeservicoapi.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -14,10 +17,12 @@ import java.time.LocalDate;
 @ToString
 public class SoModel {
 
-    private Long id;
+    private UUID id;
     private String description;
     private String clientName;
     private LocalDate openingDate;
+
+    @Enumerated(EnumType.ORDINAL)
     private Status status;
     private BigDecimal value;
 
